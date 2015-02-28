@@ -1,10 +1,37 @@
+// TekSavvy Usage
+// Author: Mike Mallin
+// License: MIT
+
 var UI = require('ui');
 var ajax = require('ajax');
+var Settings = require('settings');
+
+var api_key = Settings.option('api_key');
+
+Settings.config(
+    { url: 'https://dl.dropboxusercontent.com/u/16291525/ts-usage-configurable.html?api_key=' + api_key},
+    function(e) {
+        console.log('Closed configuration');
+        console.log(JSON.stringify(e.options));
+        
+        if (e.failed) {
+            console.log('Config failed. Response: ' + e.response);
+        } else {
+            var options = JSON.parse(decodeURIComponent(e.response));
+            api_key = encodeURIComponent(options.api_key);
+            Settings.option('api_key', api_key);
+            update_display_usage_data();
+        }
+    }
+);
+
+console.log('Using API Key: ' + api_key);
 
 // Create a Card with title and subtitle
 var card = new UI.Card({
-  title:'Teksavvy Usage',
-  subtitle:'Fetching...'
+    title:'Teksavvy Usage',
+    subtitle:'Fetching...',
+    style: 'small'
 });
 
 // Display the Card
@@ -20,13 +47,19 @@ function update_display_usage_data() {
 function update_usage_data(the_card) {
     card.subtitle('Fetching...');
     // Make the request
+    
+    if (api_key == "") {
+        card.subtitle('Need API Key!');
+        return;
+    }
+    
     ajax(
     {
         url: 'https://api.teksavvy.com/web/Usage/UsageSummaryRecords?$filter=IsCurrent%20eq%20true',
         method: 'get',
         type: 'json',
         headers: {
-            'TekSavvy-APIKey' : '07E2838AF054BECA9AD9AA8101E0B9AE'
+            'TekSavvy-APIKey' : api_key
         }
     },
         function(data) {
