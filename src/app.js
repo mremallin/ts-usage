@@ -26,7 +26,7 @@ Settings.config(
 
 // Create a Card with title and subtitle
 var card = new UI.Card({
-    title:'Teksavvy Usage',
+    title:'TekSavvy Usage',
     subtitle:'Fetching...',
     style: 'small'
 });
