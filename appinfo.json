@@ -28,6 +28,11 @@
                 "file": "fonts/UbuntuMono-Regular.ttf",
                 "name": "MONO_FONT_14",
                 "type": "font"
+            },
+            {
+                "file": "images/TSUsageLogo.png",
+                "name": "IMAGES_TSUSAGELOGO_PNG",
+                "type": "png"
             }
         ]
     },
