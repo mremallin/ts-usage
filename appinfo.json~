@@ -9,7 +9,7 @@
     "resources": {
         "media": [
             {
-                "file": "images/TSUsageLogo.png",
+                "file": "images/menu_icon.png",
                 "menuIcon": true,
                 "name": "IMAGE_MENU_ICON",
                 "type": "png"
@@ -29,6 +29,11 @@
                 "name": "MONO_FONT_14",
                 "type": "font"
             },
+            {
+                "file": "images/TSUsageLogo.png",
+                "name": "IMAGES_TSUSAGELOGO_PNG",
+                "type": "png"
+            }
         ]
     },
     "shortName": "TSUsage",
