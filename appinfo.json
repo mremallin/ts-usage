@@ -34,7 +34,7 @@
     "shortName": "TSUsage",
     "uuid": "5ec07ab2-58cf-46b6-bc04-e421defb60da",
     "versionCode": 1,
-    "versionLabel": "1.0",
+    "versionLabel": "1.1",
     "watchapp": {
         "watchface": false
     }
