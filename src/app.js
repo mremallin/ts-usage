@@ -72,12 +72,12 @@ function update_usage_data(the_card) {
             var period_end = data.value[0].EndDate.split('T')[0];
 
             // Show to user
-            the_card.subtitle('Counted: ' + (on_peak_ul + on_peak_dl) + 'Gb');
-            the_card.body('On Peak DL: ' + on_peak_dl + 'Gb\n' +
-                          'On Peak UL: ' + on_peak_ul + 'Gb\n' +
-                          'Off Peak DL: ' + off_peak_dl + 'Gb\n' +
-                          'Off Peak UL: ' + off_peak_ul + 'Gb\n' +
-                          'Total: ' + (on_peak_dl + on_peak_ul + off_peak_dl + off_peak_ul) + 'Gb\n' +
+            the_card.subtitle('Counted: ' + (on_peak_ul + on_peak_dl).toFixed(2) + 'Gb');
+            the_card.body('On Peak DL: ' + on_peak_dl.toFixed(2) + 'Gb\n' +
+                          'On Peak UL: ' + on_peak_ul.toFixed(2) + 'Gb\n' +
+                          'Off Peak DL: ' + off_peak_dl.toFixed(2) + 'Gb\n' +
+                          'Off Peak UL: ' + off_peak_ul.toFixed(2) + 'Gb\n' +
+                          'Total: ' + (on_peak_dl + on_peak_ul + off_peak_dl + off_peak_ul).toFixed(2) + 'Gb\n' +
                           '\n' +
                           'Start: ' + period_start + '\n' +
                           'End: ' + period_end + '\n'
